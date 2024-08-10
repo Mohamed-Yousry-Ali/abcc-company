@@ -16,8 +16,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  nav .active{
-    color: aqua;
+  .active{
+    color: #034583;
+    background-color: red;
   }
   a {
     font-weight: 500;

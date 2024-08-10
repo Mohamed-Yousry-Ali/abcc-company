@@ -13,26 +13,35 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
+  Image,
 } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@chakra-ui/icons";
+import imgSrc from "./../../public/images/new revisions.png";
+import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import "./../../src/i18n";
+import { NavLink } from "react-router-dom";
+
+interface NavItem {
+  label: string;
+  subLabel?: string;
+  children?: Array<NavItem>;
+  href?: string;
+}
+
+// Define the props for the components
+interface NavProps {
+  NAV_ITEMS: Array<NavItem>;
+}
 
 export default function Navbar() {
   //states
   const { isOpen, onToggle } = useDisclosure();
   const [selectLang, setSelectLang] = useState(true);
 
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   // Load language preference from cookies
   useEffect(() => {
@@ -50,6 +59,77 @@ export default function Navbar() {
     Cookies.set("selectLang", String(lng === "ar")); // Convert boolean to string
   };
 
+  const NAV_ITEMS: Array<NavItem> = [
+    {
+      label: t("Home"),
+      href: "/",
+    },
+    {
+      label: t("About"),
+      href: "/about",
+    },
+    {
+      label: t("Construction"),
+      children: [
+        {
+          label: t("Contractors"),
+
+          href: "#",
+        },
+        {
+          label: t("finishes"),
+          href: "#",
+        },
+        {
+          label: t("Sports-equipment"),
+
+          href: "#",
+        },
+        {
+          label: t("Building-maintenance"),
+          href: "#",
+        },
+      ],
+    },
+    {
+      label: t("Logistics"),
+      children: [
+        {
+          label: t("clearance"),
+          href: "#",
+        },
+        {
+          label: t("Road-Transport"),
+          href: "#",
+        },
+        {
+          label: t("Sea-Freight"),
+          href: "#",
+        },
+        {
+          label: t("Air-Freight"),
+          href: "#",
+        },
+        {
+          label: t("Logistics-Services"),
+          href: "#",
+        },
+        {
+          label: t("Customs-Business"),
+          href: "#",
+        },
+      ],
+    },
+    {
+      label: t("Vision"),
+      href: "/about",
+    },
+    {
+      label: t("Contact"),
+      href: "/contact",
+    },
+  ];
+
   return (
     <Box width="100%">
       <Flex
@@ -62,8 +142,6 @@ export default function Navbar() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align="center"
-        width="100%"
-        maxW="100%"
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -79,20 +157,31 @@ export default function Navbar() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
+
+        {/* logo */}
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
+          {/* <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
             Logo
-          </Text>
-
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
-            <DesktopNav />
-          </Flex>
+          </Text> */}
+          <Box borderRadius="md" overflow="hidden">
+            <Image
+              src={imgSrc}
+              alt="Logo"
+              objectFit="cover"
+              maxHeight="75px"
+              maxWidth="400px"
+            />
+          </Box>
         </Flex>
-
+        {/* links  */}
+        <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <DesktopNav NAV_ITEMS={NAV_ITEMS} />
+        </Flex>
+        {/* button */}
         <Stack
           flex={{ base: 1, md: 0 }}
           justify={"flex-end"}
@@ -101,13 +190,15 @@ export default function Navbar() {
         >
           {selectLang ? (
             <Button
-              display={{ base: "none", md: "inline-flex" }}
-              fontSize={"sm"}
+              // display={{ base: "none", md: "inline-flex" }}
+              fontSize={"md"}
+              width={100}
+              height={50}
               fontWeight={600}
               color={"white"}
-              bg={"pink.400"}
+              bg={"#bdbebf"}
               _hover={{
-                bg: "pink.300",
+                bg: "#034583",
               }}
               onClick={() => changeLanguage("en")}
             >
@@ -115,13 +206,15 @@ export default function Navbar() {
             </Button>
           ) : (
             <Button
-              display={{ base: "none", md: "inline-flex" }}
-              fontSize={"sm"}
+              // display={{ base: "none", md: "inline-flex" }}
+              fontSize={"md"}
+              width={100}
+              height={50}
               fontWeight={600}
               color={"white"}
-              bg={"pink.400"}
+              bg={"#bdbebf"}
               _hover={{
-                bg: "pink.300",
+                bg: "#034583",
               }}
               onClick={() => changeLanguage("ar")}
             >
@@ -132,32 +225,33 @@ export default function Navbar() {
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
+        <MobileNav NAV_ITEMS={NAV_ITEMS} />
       </Collapse>
     </Box>
   );
 }
 
-const DesktopNav = () => {
+const DesktopNav: React.FC<NavProps> = ({ NAV_ITEMS }) => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const linkHoverColor = useColorModeValue("#034583", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
     <Stack direction={"row"} spacing={4}>
-      {NAV_ITEMS.map((navItem) => (
+      {NAV_ITEMS.map((navItem: NavItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Box
-                as="a"
+                as={NavLink}
                 p={2}
-                href={navItem.href ?? "#"}
+                to={navItem.href ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
+                end
                 color={linkColor}
                 _hover={{
-                  textDecoration: "none",
+                  textDecoration: "underline",
                   color: linkHoverColor,
                 }}
               >
@@ -219,14 +313,14 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          {/* <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} /> */}
         </Flex>
       </Stack>
     </Box>
   );
 };
 
-const MobileNav = () => {
+const MobileNav: React.FC<NavProps> = ({ NAV_ITEMS }) => {
   return (
     <Stack
       bg={useColorModeValue("white", "gray.800")}
@@ -292,51 +386,3 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
     </Stack>
   );
 };
-
-interface NavItem {
-  label: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-}
-
-const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: "Inspiration",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Find Work",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Learn Design",
-    href: "#",
-  },
-  {
-    label: "Hire Designers",
-    href: "#",
-  },
-];

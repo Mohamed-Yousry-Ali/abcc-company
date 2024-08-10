@@ -1,6 +1,19 @@
 {
     "Home": "Home",
     "About": "About Us",
+    "Construction": "Construction",
+    "Contractors":"Contractors",
+    "finishes":"Interior And Exterior Finishes",
+    "Sports-equipment":"Sports Equipment",
+    "Building-maintenance":"Building Maintenance",
+    "Logistics": "Logistics",
+    "clearance" :"Customs clearance services for import and export",
+    "Road-Transport":"Road Transport",
+    "Sea-Freight":"Sea Freight",
+    "Air-Freight":"Air Freight",
+    "Logistics-Services":"Logistics Services",
+    "Customs-Business":"Customs Business",
     "Contact":"Contact Us",
+    "Vision":"Vision 2030",
     "direction":"ltr"
 }

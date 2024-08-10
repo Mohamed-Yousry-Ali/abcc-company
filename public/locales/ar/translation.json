@@ -1,6 +1,21 @@
 {
     "Home": "الرئيسية",
     "About": "من نحن",
+    "Construction": "خدماتنا الإنشائية",
+    "Logistics": "خدماتنا اللوجستية",
+
+    "Contractors":"المقاولات",
+    "finishes":"التشطيبات الداخلية والخارجية",
+    "Sports-equipment":"تجهيز الملاعب والصالات الرياضية بالارضيات" ,
+    "Building-maintenance":"صيانة المبانى والمكاتب والمنازل والمطاعم والكافيهات",
+    "clearance" :"خدمات التخليص الجمركى للاستيراد والتصدير",
+    "Road-Transport":"النقل البرى",
+    "Sea-Freight":"الشحن البحرى",
+    "Air-Freight":"النقل الجوى",
+    "Logistics-Services":"الخدمات اللوجستية",
+    "Customs-Business":"الاعمال الجمركية",
     "Contact":"اتصل بنا",
+    "Vision":"رؤية 2030",
+
     "direction":"rtl"
 }
