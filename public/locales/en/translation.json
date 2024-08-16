@@ -1,19 +1,70 @@
 {
     "Home": "Home",
     "About": "About Us",
+
     "Construction": "Construction",
+
     "Contractors":"Contractors",
+    "Contractors-info":"We are a leading company in the field of finishing public and private contracting",
+
     "finishes":"Interior And Exterior Finishes",
+    "finishes-nfo":"The importance of details in interior and exterior finishes",
+
     "Sports-equipment":"Sports Equipment",
+    "Sports-equipment-info":"Equipping playgrounds and sports halls with floors",
+
     "Building-maintenance":"Building Maintenance",
+    "maintenance":"Maintenance",
+    "maintenance-info":"Maintenance of buildings, offices, homes, restaurants and cafes",
+    
+
     "Logistics": "Logistics",
-    "clearance" :"Customs clearance services for import and export",
+
+    "clearance" :"Customs Clearance services for import and export",
+    "clearance-com":"Customs Clearance",
+    "clearance-com-info":"Customs Clearance services for import and export",
+
+    "Transportation":"Transportation and shipping services",
+    "Transportation-info":"Land, air and sea transportation and shipping services",
+
     "Road-Transport":"Road Transport",
     "Sea-Freight":"Sea Freight",
     "Air-Freight":"Air Freight",
+
     "Logistics-Services":"Logistics Services",
+    "Logistics-Services-info":"Speed ​​up the arrival of shipments without obstacles",
+
     "Customs-Business":"Customs Business",
+    "Customs-Business-info":"Providing specialized consulting services in customs Affairs",
+
+    "company":"Company",
+  "services":"Services",
+  
     "Contact":"Contact Us",
     "Vision":"Vision 2030",
-    "direction":"ltr"
+    "aboutHomePageNabza": "About",
+    "aboutHomePageKnoladge": "US",
+    "OurFound":"About US",
+    "OurFounfInfo":"The company was established in 2011 to practice contracting activity, which is a promising market that has its own challenges and is constantly innovating and suits the aspirations of the company’s owners. The company implements medium-sized projects and specializes in them. The founders’ experience in the field of engineering design helped in establishing the quality systems necessary to implement these projects, which include residential and com- mercial complexes. It is based on an understanding of the design idea and then highlighting it during implementation, taking into account the development of work teams to suit the company’s ambitions and maintaining high quality in project implementation, as well as ad- herence to the schedule set for that.",
+    "ourVision":"Vision",
+    "ourVisionInfo":"To be the leading company in the field of general contracting. work with transparency and credibility, and implement projects to the fullest extent",
+    "gouls":"Gouls",
+    "goulsInfo":"We excel in all services and activities so that we can expand further and provide Diverse services that satisfy all customers.",
+    "msgCompany":"Our Message",
+    "msgCompanyInfo":"We excel in all services and activities so that we can expand further and provide diverse services that satisfy all customers.",
+   "more":"More",
+
+   "vibrant-community":"Vibrant Community",
+   "vibrant-community-info":"Saudi Vision 2030 is becoming a reality in a vibrant society. A cohesive and happy society is the foundation of economic prosperity for a society whose citizens are responsible, and whose roots are firmly based on the tolerant values ​​of Islam and pride in the homeland, with pride in Saudi heritage and culture, in an environment that provides world-class entertainment options, a sustainable lifestyle, and effective health and social care systems. The Kingdom is distinguished by its rich culture, national unity, and Islamic faith. The Kingdom has also prided itself throughout the ages in hosting pilgrims and demonstrating its values ​​to the world.",
+   "vibrant-community-short":"Saudi Vision 2030 is becoming a reality in a vibrant society. A cohesive and happy society is the most important foundation for economic prosperity for a society with responsible citizens.",
+
+   "thriving-economy":"Thriving Economy",
+   "thriving-economy-info":"The vision has enabled the nation’s youth to participate effectively in all sectors, and has drawn a promising future that they can create with their own hands, after giving priority to the creative and talented, supporting the culture of innovation and perseverance, providing distinct opportunities for growth, and working to generate quality jobs, while attracting the best global expertise. The Kingdom has provided an attractive competitive environment open to business, to build a leading global economy that enhances entrepreneurship, restructures economic cities, contributes to the establishment of special zones, and unleashes the potential of the energy market to make it more competitive. The Kingdom is also investing for a bright future, by unleashing promising new sectors, and allocating more government services to diversify the economy and ensure its sustainability.",
+  "thriving-economy-short":"The vision enabled the nation’s youth to participate effectively in all sectors, and drew a promising future that they could create with their own hands, after giving priority to the creative and talented.",
+  
+   "Ambitious-homeland":"Ambitious Homeland",
+   "Ambitious-homeland-info":"The government assumes great responsibilities that require flexibility in dealing with modern variables and new challenges, and is committed to transparency and accountability, and works to manage its financial resources efficiently and effectively, with speed in achievement and performance monitoring. Whatever sector you work in, you will have an important role to play in contributing to building your country. If you are a business owner or work in a non-profit organization or in any other sector, you are called upon to contribute to the development of this country, and the non-profit sector will remain an important part of our society, playing a crucial role in meeting societal needs and advancing society.",
+   "Ambitious-homeland-short":"The government assumes great responsibilities that require flexibility in dealing with modern variables and new challenges, and is committed to transparency and accountability.",
+
+   "direction":"ltr"
 }

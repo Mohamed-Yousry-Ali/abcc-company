@@ -15,9 +15,18 @@ import {
   useColorModeValue,
   useDisclosure,
   Image,
+  useColorMode,
 } from "@chakra-ui/react";
-import imgSrc from "./../../public/images/new revisions.png";
-import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import imgSrc from "./../../public/images/new revisions 55.png";
+
+// import imgSrc from "./../../public/images/new revisions.jpg";
+import {
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  MoonIcon,
+  SunIcon,
+} from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
@@ -38,6 +47,8 @@ interface NavProps {
 
 export default function Navbar() {
   //states
+  const { colorMode, toggleColorMode } = useColorMode();
+
   const { isOpen, onToggle } = useDisclosure();
   const [selectLang, setSelectLang] = useState(true);
 
@@ -51,6 +62,15 @@ export default function Navbar() {
       i18n.changeLanguage(storedLang === "true" ? "ar" : "en");
     }
   }, [i18n]);
+
+  useEffect(() => {
+    if (colorMode === "light") {
+      document.body.style.backgroundImage =
+        "linear-gradient(40deg, #fff, #fff, #e6e6e6)";
+    } else {
+      document.body.style.backgroundImage = "";
+    }
+  }, [colorMode]);
 
   //handlers
   const changeLanguage = (lng: string) => {
@@ -70,6 +90,7 @@ export default function Navbar() {
     },
     {
       label: t("Construction"),
+      href: "cooo",
       children: [
         {
           label: t("Contractors"),
@@ -93,6 +114,7 @@ export default function Navbar() {
     },
     {
       label: t("Logistics"),
+      href: "cooo",
       children: [
         {
           label: t("clearance"),
@@ -122,7 +144,7 @@ export default function Navbar() {
     },
     {
       label: t("Vision"),
-      href: "/about",
+      href: "/vision",
     },
     {
       label: t("Contact"),
@@ -133,14 +155,10 @@ export default function Navbar() {
   return (
     <Box width="100%">
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
         align="center"
       >
         <Flex
@@ -188,11 +206,15 @@ export default function Navbar() {
           direction={"row"}
           spacing={6}
         >
+          {/* background-image: linear-gradient(90deg, #fff, #fff, #e6e6e6); */}
+          <Button onClick={toggleColorMode}>
+            {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+          </Button>
           {selectLang ? (
             <Button
               // display={{ base: "none", md: "inline-flex" }}
               fontSize={"md"}
-              width={100}
+              width={"100%"}
               height={50}
               fontWeight={600}
               color={"white"}
@@ -208,9 +230,9 @@ export default function Navbar() {
             <Button
               // display={{ base: "none", md: "inline-flex" }}
               fontSize={"md"}
-              width={100}
+              width={"100%"}
               height={50}
-              fontWeight={600}
+              fontWeight={400}
               color={"white"}
               bg={"#bdbebf"}
               _hover={{
@@ -246,13 +268,19 @@ const DesktopNav: React.FC<NavProps> = ({ NAV_ITEMS }) => {
                 as={NavLink}
                 p={2}
                 to={navItem.href ?? "#"}
-                fontSize={"sm"}
-                fontWeight={500}
+                fontSize={"17px"}
+                textTransform={"uppercase"}
+                fontWeight={"800"}
                 end
                 color={linkColor}
                 _hover={{
-                  textDecoration: "underline",
                   color: linkHoverColor,
+                }}
+                onClick={(event) => {
+                  if (navItem.children) {
+                    event.preventDefault();
+                  }
+                  // Continue with other logic if necessary
                 }}
               >
                 {navItem.label}
@@ -291,13 +319,13 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: useColorModeValue("gray.300", "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
+            _groupHover={{ color: "#000" }}
             fontWeight={500}
           >
             {label}
@@ -347,6 +375,12 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         alignItems="center"
         _hover={{
           textDecoration: "none",
+        }}
+        onClick={(event) => {
+          if (children) {
+            event.preventDefault();
+          }
+          // Continue with other logic if necessary
         }}
       >
         <Text

@@ -1,11 +1,26 @@
+import { Box } from "@chakra-ui/react";
+import ImageSlider from "../UI/ImageSlider";
+import { SlideData } from "../SlideData";
+import AboutCom from "../components/AboutCom";
+import MsgCompany from "../components/MsgCompany";
+import CompanyServices from "../components/CompanyServices";
+import VisionHomePage from "../components/VisionHomePage";
+import MapCompany from "../components/MapCompany";
+
 const HomePage = () => {
   return (
     <>
-      <div className=" grid grid-rows-4 grid-flow-col gap-4">
-        <div>01</div>
-        <div>02</div>
-        <div>03</div>
-      </div>
+      <Box w="100%" color="white" style={{ direction: "ltr" }}>
+        <ImageSlider slides={SlideData} />
+      </Box>
+
+      <AboutCom />
+
+      <MsgCompany />
+
+      <CompanyServices />
+      <VisionHomePage />
+      <MapCompany />
     </>
   );
 };

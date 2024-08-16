@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Cairo", sans-serif;
     line-height: 1.5;
     font-weight: 400;
   
@@ -17,9 +17,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
   .active{
-    color: #034583;
-    background-color: red;
+    color: #0811c1 !important;
+    border-bottom: 3px solid #0811c1;
   }
+  
   a {
     font-weight: 500;
     color: #646cff;
@@ -30,6 +31,7 @@
   }
   
   body {
+    font-family: "Cairo", sans-serif !important;
     
   }
   
